@@ -1,12 +1,12 @@
-FROM judge0/compilers:1.4.0 AS production
+FROM aasp/judge0/compilers:1.0.0 AS production
 
 ENV JUDGE0_HOMEPAGE "https://judge0.com"
 LABEL homepage=$JUDGE0_HOMEPAGE
 
-ENV JUDGE0_SOURCE_CODE "https://github.com/judge0/judge0"
-LABEL source_code=$JUDGE0_SOURCE_CODE
+ENV JUDGE0_AASP_SOURCE_CODE "https://github.com/chongyih/aasp-judge0"
+LABEL source_code=$JUDGE0_AASP_SOURCE_CODE
 
-ENV JUDGE0_MAINTAINER "Herman Zvonimir Došilović <hermanz.dosilovic@gmail.com>"
+ENV JUDGE0_AASP_MAINTAINER "Chua Chong Yih <chuachongyih@gmail.com>"
 LABEL maintainer=$JUDGE0_MAINTAINER
 
 ENV PATH "/usr/local/ruby-2.7.0/bin:/opt/.gem/bin:$PATH"
