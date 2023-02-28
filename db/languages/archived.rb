@@ -513,4 +513,12 @@
     compile_cmd: "/usr/local/groovy-3.0.3/bin/groovyc %s script.groovy",
     run_cmd: "/usr/local/bin/java -cp \".:/usr/local/groovy-3.0.3/lib/*\" script"
   },
+  {
+    id: 68,
+    name: "Rust (1.40.0)",
+    is_archived: false,
+    source_file: "main.rs",
+    compile_cmd: "/usr/local/rust-1.40.0/bin/rustc %s main.rs",
+    run_cmd: "./main"
+  },
 ]
