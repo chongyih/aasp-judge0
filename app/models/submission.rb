@@ -26,6 +26,7 @@
 #  enable_per_process_and_thread_memory_limit :boolean
 #  max_file_size                              :integer
 #  compile_output                             :text
+#  vcd_output                                 :text
 #  exit_code                                  :integer
 #  exit_signal                                :integer
 #  message                                    :text
@@ -142,6 +143,16 @@ class Submission < ApplicationRecord
   def compile_output=(value)
     super(value)
     self[:compile_output] = Base64Service.encode(self[:compile_output])
+  end
+
+
+  def vcd_output
+    @decoded_vcd_output ||= Base64Service.decode(self[:vcd_output])
+  end
+
+  def vcd_output=(value)
+    super(value)
+    self[:vcd_output] = Base64Service.encode(self[:vcd_output])
   end
 
 

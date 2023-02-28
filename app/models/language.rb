@@ -16,6 +16,6 @@ class Language < ApplicationRecord
   default_scope { where(is_archived: false).order(name: :asc) }
 
   def is_project
-    name == "Multi-file program"
+    name == "Multi-file program" || name == "Verilog (Icarus Verilog 11.0)"
   end
 end

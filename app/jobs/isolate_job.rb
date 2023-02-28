@@ -213,6 +213,9 @@ class IsolateJob < ApplicationJob
       end
     end
 
+    vcd_output_file = boxdir + "/" + "vcd_dump.vcd"
+    initialize_file(vcd_output_file)
+
     unless submission.is_project
       # gsub is mandatory!
       command_line_arguments = submission.command_line_arguments.to_s.strip.encode("UTF-8", invalid: :replace).gsub(/[$&;<>|`]/, "")
@@ -247,6 +250,13 @@ class IsolateJob < ApplicationJob
     puts
 
     `#{command}`
+
+    # return vcd dump if submission is Verilog (Icarus Verilog 11.0)
+    if submission.language.name == "Verilog (Icarus Verilog 11.0)"
+      vcd_dump = File.read(vcd_output_file)
+      vcd_dump = nil if vcd_dump.empty?
+      submission.vcd_output = vcd_dump
+    end
 
     `sudo chown $(whoami): #{run_script} && rm #{run_script}` unless submission.is_project
   end

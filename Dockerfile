@@ -1,4 +1,4 @@
-FROM aasp/judge0/compilers:1.0.0 AS production
+FROM chuachongyih/aasp-judge0-compilers:1.0.0 AS production
 
 ENV JUDGE0_HOMEPAGE "https://judge0.com"
 LABEL homepage=$JUDGE0_HOMEPAGE

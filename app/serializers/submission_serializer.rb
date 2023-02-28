@@ -9,6 +9,7 @@ class SubmissionSerializer < ActiveModel::Serializer
       :stdout,
       :stderr,
       :compile_output,
+      :vcd_output,
       :message,
       :status
     ]
@@ -36,6 +37,10 @@ class SubmissionSerializer < ActiveModel::Serializer
 
   def compile_output
     object_decoder(:compile_output)
+  end
+
+  def vcd_output
+    object_decoder(:vcd_output)
   end
 
   def message

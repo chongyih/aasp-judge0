@@ -356,5 +356,10 @@
     id: 89,
     name: "Multi-file program",
     is_archived: false,
+  },
+  {
+    id: 90,
+    name: "Verilog (Icarus Verilog 11.0)",
+    is_archived: false,
   }
 ]
